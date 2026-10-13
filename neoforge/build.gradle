@@ -1,5 +1,5 @@
 plugins {
-	id 'craftablehorsearmor.loader'
+	id 'craftablehorseitems.loader'
 	id 'net.neoforged.moddev'
 }
 
@@ -14,7 +14,7 @@ neoForge {
 		}
 	}
 	mods {
-		"craftablehorsearmor" {
+		"craftablehorseitems" {
 			sourceSet sourceSets.main
 		}
 	}

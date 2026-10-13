@@ -1,32 +1,32 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_copper_helmet": {
+    "has_iron_helmet": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "minecraft:copper_helmet"
+            "items": "minecraft:iron_helmet"
           }
         ]
       }
     },
-    "has_copper_chestplate": {
+    "has_iron_chestplate": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "minecraft:copper_chestplate"
+            "items": "minecraft:iron_chestplate"
           }
         ]
       }
     },
-    "has_copper_leggings": {
+    "has_iron_leggings": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "minecraft:copper_leggings"
+            "items": "minecraft:iron_leggings"
           }
         ]
       }
@@ -34,21 +34,21 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipes": "craftablehorsearmor:copper_horse_armor"
+        "recipes": "craftablehorseitems:iron_horse_armor"
       }
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_copper_helmet",
-      "has_copper_chestplate",
-      "has_copper_leggings"
+      "has_iron_helmet",
+      "has_iron_chestplate",
+      "has_iron_leggings"
     ]
   ],
   "rewards": {
     "recipes": [
-      "craftablehorsearmor:copper_horse_armor"
+      "craftablehorseitems:iron_horse_armor"
     ]
   }
 }

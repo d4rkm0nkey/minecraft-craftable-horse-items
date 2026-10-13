@@ -1,11 +1,11 @@
 plugins {
-	id 'craftablehorsearmor.loader'
+	id 'craftablehorseitems.loader'
 	id 'net.fabricmc.fabric-loom'
 }
 
 loom {
 	mods {
-		"craftablehorsearmor" {
+		"craftablehorseitems" {
 			sourceSet sourceSets.main
 		}
 	}

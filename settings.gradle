@@ -9,7 +9,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'CraftableHorseArmor'
+rootProject.name = 'CraftableHorseItems'
 includeBuild('build-logic')
 include('fabric')
 include('neoforge')

@@ -1,4 +1,4 @@
-# <img src="common/src/main/resources/assets/craftablehorsearmor/icon.png" width="30"/> Craftable Horse Armor
+# <img src="common/src/main/resources/assets/craftablehorseitems/icon.png" width="30"/> Craftable Horse Items
 
 A Minecraft mod that adds crafting recipes for horse armor and an extra saddle recipe.
 Available for **Fabric**, **Quilt** (uses the Fabric jar) and **NeoForge**.

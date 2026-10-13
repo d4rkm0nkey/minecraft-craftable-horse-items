@@ -34,7 +34,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipes": "craftablehorsearmor:diamond_horse_armor"
+        "recipes": "craftablehorseitems:diamond_horse_armor"
       }
     }
   },
@@ -48,7 +48,7 @@
   ],
   "rewards": {
     "recipes": [
-      "craftablehorsearmor:diamond_horse_armor"
+      "craftablehorseitems:diamond_horse_armor"
     ]
   }
 }

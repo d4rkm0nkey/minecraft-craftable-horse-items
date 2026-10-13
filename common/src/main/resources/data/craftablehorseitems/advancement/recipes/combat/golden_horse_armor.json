@@ -1,32 +1,32 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_helmet": {
+    "has_golden_helmet": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "minecraft:iron_helmet"
+            "items": "minecraft:golden_helmet"
           }
         ]
       }
     },
-    "has_iron_chestplate": {
+    "has_golden_chestplate": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "minecraft:iron_chestplate"
+            "items": "minecraft:golden_chestplate"
           }
         ]
       }
     },
-    "has_iron_leggings": {
+    "has_golden_leggings": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "minecraft:iron_leggings"
+            "items": "minecraft:golden_leggings"
           }
         ]
       }
@@ -34,21 +34,21 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipes": "craftablehorsearmor:iron_horse_armor"
+        "recipes": "craftablehorseitems:golden_horse_armor"
       }
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_iron_helmet",
-      "has_iron_chestplate",
-      "has_iron_leggings"
+      "has_golden_helmet",
+      "has_golden_chestplate",
+      "has_golden_leggings"
     ]
   ],
   "rewards": {
     "recipes": [
-      "craftablehorsearmor:iron_horse_armor"
+      "craftablehorseitems:golden_horse_armor"
     ]
   }
 }
