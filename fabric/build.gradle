@@ -1,6 +1,6 @@
 plugins {
 	id 'craftablehorseitems.loader'
-	id 'net.fabricmc.fabric-loom'
+	id 'fabric-loom'
 }
 
 loom {
@@ -13,12 +13,15 @@ loom {
 
 dependencies {
 	minecraft "com.mojang:minecraft:${minecraft_version}"
-	implementation "net.fabricmc:fabric-loader:${loader_version}"
+	// 1.21.11 is still obfuscated; the mod has no code, so the mappings only matter for the dev runs
+	mappings loom.officialMojangMappings()
+	modImplementation "net.fabricmc:fabric-loader:${loader_version}"
 	// Fabric API's resource loader adds the mod's recipes as a built-in data pack
-	implementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 }
 
 publishMods {
+	file = remapJar.archiveFile
 	// Quilt loads Fabric mods, so the Fabric jar is published for both
 	modLoaders.addAll("fabric", "quilt")
 	curseforge {

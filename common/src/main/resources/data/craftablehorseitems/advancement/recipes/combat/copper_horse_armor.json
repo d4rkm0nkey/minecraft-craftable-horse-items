@@ -34,7 +34,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipes": "craftablehorseitems:copper_horse_armor"
+        "recipe": "craftablehorseitems:copper_horse_armor"
       }
     }
   },
