@@ -1,0 +1,74 @@
+// Settings for the loader projects (fabric, neoforge): packs the shared data pack resources
+// from common/ into the loader jar and configures publishing to CurseForge and Modrinth.
+plugins {
+	id 'java-library'
+	id 'me.modmuss50.mod-publish-plugin'
+}
+
+version = "${mod_version}+${minecraft_version}"
+group = maven_group
+
+base {
+	archivesName = "${archives_base_name}-${project.name}"
+}
+
+java {
+	sourceCompatibility = JavaVersion.toVersion(java_version)
+	targetCompatibility = JavaVersion.toVersion(java_version)
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = java_version as int
+}
+
+// The recipes and advancements are loader-independent
+sourceSets.main.resources.srcDir(rootProject.file('common/src/main/resources'))
+
+processResources {
+	def props = [
+		"version"             : project.version,
+		"minecraft_dependency": minecraft_dependency,
+		"minecraft_range"     : minecraft_range,
+		"java_version"        : java_version,
+	]
+	inputs.properties(props)
+	filesMatching(["fabric.mod.json", "META-INF/neoforge.mods.toml"]) {
+		expand props
+	}
+}
+
+jar {
+	from(rootProject.file("LICENSE")) {
+		rename { "${it}_${archives_base_name}" }
+	}
+}
+
+// Publishing to CurseForge and Modrinth: ./gradlew publishMods
+// Without CURSEFORGE_TOKEN / MODRINTH_TOKEN set this runs as a dry run.
+def publishVersions = publish_minecraft_versions.split(",").collect { it.trim() }
+def loaderName = project.name == "neoforge" ? "NeoForge" : "Fabric/Quilt"
+
+publishMods {
+	file = jar.archiveFile
+	displayName = "${mod_version} for ${publishVersions.first()}" + (publishVersions.size() > 1 ? "-${publishVersions.last()}" : "") + " (${loaderName})"
+	version = "${project.version}-${project.name}"
+	changelog = providers.environmentVariable("CHANGELOG").filter { !it.isBlank() }.orElse("See https://github.com/d4rkm0nkey/CraftableHorseArmor/releases")
+	type = providers.environmentVariable("RELEASE_TYPE").filter { !it.isBlank() }.map { me.modmuss50.mpp.ReleaseType.of(it) }.orElse(STABLE)
+	dryRun = providers.environmentVariable("CURSEFORGE_TOKEN").getOrElse("").isBlank() \
+		|| providers.environmentVariable("MODRINTH_TOKEN").getOrElse("").isBlank()
+
+	curseforge {
+		projectId = curseforge_id ?: "0"
+		projectSlug = "craftable-horse-armor"
+		accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+		minecraftVersions.addAll(publishVersions)
+		javaVersions.add(JavaVersion.toVersion(java_version))
+		client = true
+		server = true
+	}
+	modrinth {
+		projectId = modrinth_id ?: "0"
+		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+		minecraftVersions.addAll(publishVersions)
+	}
+}

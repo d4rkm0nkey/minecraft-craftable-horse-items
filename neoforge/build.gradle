@@ -1,0 +1,29 @@
+plugins {
+	id 'craftablehorsearmor.loader'
+	id 'net.neoforged.moddev'
+}
+
+neoForge {
+	version = neoforge_version
+	runs {
+		client {
+			client()
+		}
+		server {
+			server()
+		}
+	}
+	mods {
+		"craftablehorsearmor" {
+			sourceSet sourceSets.main
+		}
+	}
+}
+
+publishMods {
+	modLoaders.add("neoforge")
+	// A mod built against a NeoForge beta is not published as a stable release
+	if (neoforge_version.contains("beta")) {
+		type = BETA
+	}
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": "minecraft:golden_helmet",
+    "C": "minecraft:golden_chestplate",
+    "W": "minecraft:black_wool",
+    "L": "minecraft:golden_leggings"
+  },
+  "pattern": [
+    "  H",
+    "CWC",
+    "L L"
+  ],
+  "result": {
+    "id": "minecraft:golden_horse_armor"
+  }
+}

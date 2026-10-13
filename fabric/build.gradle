@@ -1,0 +1,30 @@
+plugins {
+	id 'craftablehorsearmor.loader'
+	id 'net.fabricmc.fabric-loom'
+}
+
+loom {
+	mods {
+		"craftablehorsearmor" {
+			sourceSet sourceSets.main
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${loader_version}"
+	// Fabric API's resource loader adds the mod's recipes as a built-in data pack
+	implementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+}
+
+publishMods {
+	// Quilt loads Fabric mods, so the Fabric jar is published for both
+	modLoaders.addAll("fabric", "quilt")
+	curseforge {
+		requires("fabric-api")
+	}
+	modrinth {
+		requires("fabric-api")
+	}
+}

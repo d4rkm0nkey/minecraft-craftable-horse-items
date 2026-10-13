@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": "minecraft:diamond_helmet",
+    "C": "minecraft:diamond_chestplate",
+    "W": "minecraft:black_wool",
+    "L": "minecraft:diamond_leggings"
+  },
+  "pattern": [
+    "  H",
+    "CWC",
+    "L L"
+  ],
+  "result": {
+    "id": "minecraft:diamond_horse_armor"
+  }
+}

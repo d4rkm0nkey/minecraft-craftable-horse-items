@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": "minecraft:copper_helmet",
+    "C": "minecraft:copper_chestplate",
+    "W": "minecraft:black_wool",
+    "L": "minecraft:copper_leggings"
+  },
+  "pattern": [
+    "  H",
+    "CWC",
+    "L L"
+  ],
+  "result": {
+    "id": "minecraft:copper_horse_armor"
+  }
+}
